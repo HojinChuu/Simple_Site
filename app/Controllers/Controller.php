@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use Database\DBConnection;
 
-class Controller
+abstract class Controller // 인스턴스화 no 
 {
     protected $db;
 
@@ -13,16 +13,18 @@ class Controller
         $this->db = $db;
     }
     
-    public function view(string $path, array $params = null)
+    protected function view(string $path, array $params = null)
     {
         ob_start(); // 출력 버퍼 on
 
         $path = str_replace('.', '/', $path);   
-        
         require VIEWS . $path . '.php';
-
         $content = ob_get_clean();
-        
         require VIEWS . 'layout.php';
+    }
+
+    protected function getDB()
+    {
+        return $this->db;
     }
 }
