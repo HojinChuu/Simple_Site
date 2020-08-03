@@ -1,5 +1,5 @@
 {
-    "name": "chuhojin/basic",
+    "name": "chuhojin/blog",
     "authors": [
         {
             "name": "HojinChuu",
@@ -9,7 +9,8 @@
     "autoload": {
         "psr-4": {
             "Router\\": "routes/",
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\": "database/"
         }
     },
     "require": {}

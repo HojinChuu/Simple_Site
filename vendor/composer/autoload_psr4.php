@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Router\\' => array($baseDir . '/routes'),
+    'Database\\' => array($baseDir . '/database'),
     'App\\' => array($baseDir . '/app'),
 );
