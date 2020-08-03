@@ -1,0 +1,15 @@
+{
+    "name": "chuhojin/basic",
+    "authors": [
+        {
+            "name": "HojinChuu",
+            "email": "cnghwls7@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Router\\": "routes/"
+        }
+    },
+    "require": {}
+}
