@@ -21,7 +21,7 @@ class Router
     {
         foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
             if($route->matches($this->url)) {
-                $route->execute();
+                return $route->execute();
             }
         }
 
