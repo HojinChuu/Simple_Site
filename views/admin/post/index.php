@@ -1,5 +1,7 @@
 <h1>Administration</h1>
 
+<a href="<?= URLROOT ?>/admin/posts/create" class="btn btn-success my-3">Create Post</a>
+
 <table class="table table-bordered mt-4">
     <thead>
         <tr>

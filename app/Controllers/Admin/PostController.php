@@ -15,6 +15,16 @@ class PostController extends Controller
         return $this->view('admin.post.index', compact('posts'));
     }
 
+    public function create()
+    {
+        
+    }
+
+    public function createPost()
+    {
+        
+    }
+
     public function edit(int $id)
     {
         $post = (new Post($this->getDB()))->findById($id);
