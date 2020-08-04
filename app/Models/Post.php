@@ -20,16 +20,14 @@ class Post extends Model
         return $content;
     }
 
-    public function getTags($id)
+    public function getTags($id) : array
     {
         $stmt = $this->query(
-            'SELECT * FROM tags
+            'SELECT tags.* FROM tags
             INNER JOIN post_tag
             ON post_tag.tag_id = tags.id
-            INNER JOIN posts
-            ON post_tag.post_id = posts.id
-            WHERE posts.id = ?', $id);
-
+            WHERE post_tag.post_id = ?', $id);
+        var_dump($stmt);
         return $stmt;
     }
 

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 
 class BlogController extends Controller
 {
@@ -25,5 +26,13 @@ class BlogController extends Controller
         $post = $post->findById($id);
 
         return $this->view('blog.show', compact('post'));
+    }
+
+    public function tag(int $id) 
+    {
+        $tag = new Tag($this->getDB());
+        $tag = $tag->findById($id);
+
+        return $this->view('blog.tag', compact('tag'));
     }
 }
