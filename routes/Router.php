@@ -19,6 +19,11 @@ class Router
         $this->routes['GET'][] = new Route($path, $action);
     }
 
+    public function post(string $path, string $action)
+    {
+        $this->routes['POST'][] = new Route($path, $action);
+    }
+
     public function run() 
     {
         foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {

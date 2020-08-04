@@ -12,8 +12,7 @@ class Tag extends Model
             'SELECT posts.* FROM posts
             INNER JOIN post_tag
             ON post_tag.post_id = posts.id
-            WHERE post_tag.tag_id = ?', $id);
-        var_dump($stmt);
+            WHERE post_tag.tag_id = ?', [ $id ]);
         return $stmt;
     }
 }

@@ -1,4 +1,3 @@
-<?php var_dump($params);?>
 <h1><?= $params['post']->title ?></h1>
 <div>
     <?php foreach($params['post']->getTags($params['post']->id) as $tag) : ?>
