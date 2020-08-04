@@ -2,6 +2,8 @@
 
 namespace Router;
 
+use App\Exceptions\NotFoundException;
+
 class Router
 {
     public $url;
@@ -25,7 +27,8 @@ class Router
             }
         }
 
-        return header('HTTP/1.0 404 Not Found');
+        // return header('HTTP/1.0 404 Not Found');
+        throw new NotFoundException("페이지를 찾을 수 없습니다.");
     }
 
 }
