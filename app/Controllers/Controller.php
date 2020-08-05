@@ -10,6 +10,10 @@ abstract class Controller // 인스턴스화 no
 
     public function __construct(DBConnection $db)
     {
+        if(session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
         $this->db = $db;
     }
     
@@ -26,5 +30,12 @@ abstract class Controller // 인스턴스화 no
     protected function getDB()
     {
         return $this->db;
+    }
+
+    protected function isAdmin()
+    {
+        return (isset($_SESSION['auth']) && $_SESSION['auth'] === 1)
+         ? true 
+         : header('Location: ' . URLROOT . '/login');;
     }
 }

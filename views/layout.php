@@ -23,6 +23,18 @@
                     <a class="nav-link" href="<?= URLROOT; ?>/posts">News</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                <?php if (!isset($_SESSION['auth'])) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= URLROOT; ?>/login">Login</a>
+                    </li>
+                <?php else : ?>
+                    <!-- username -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= URLROOT; ?>/logout">Logout</a>
+                    </li>
+                <?php endif ?>
+            </ul>
         </div>
     </nav>
     <div class="container">

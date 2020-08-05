@@ -1,5 +1,9 @@
 <h1>Administration</h1>
 
+<?php if(isset($_GET['success'])) : ?>
+    <div class="alert alert-success">you are connected</div>
+<?php endif ?>
+
 <a href="<?= URLROOT ?>/admin/posts/create" class="btn btn-success my-3">Create Post</a>
 
 <table class="table table-bordered mt-4">
