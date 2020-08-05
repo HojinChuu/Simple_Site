@@ -17,12 +17,22 @@ class PostController extends Controller
 
     public function create()
     {
-        
+        $tags = (new Tag($this->getDB()))->all();
+
+        return $this->view('admin.post.create', compact('tags'));
     }
 
     public function createPost()
     {
-        
+        $post = new Post($this->getDB());
+
+        $tags = array_pop($_POST); 
+
+        $result = $post->create($_POST, $tags);
+
+        if($result) {
+            return header('Location: ' . URLROOT . '/admin/posts');
+        }
     }
 
     public function edit(int $id)

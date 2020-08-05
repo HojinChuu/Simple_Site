@@ -1,4 +1,4 @@
-<h1>edit</h1>
+<h1>edit <?= $params['post']->title ?></h1>
 
 <form action="<?= URLROOT ?>/admin/posts/edit/<?= $params['post']->id ?>" method="POST">
     <div class="form-group">

@@ -23,6 +23,22 @@ abstract class Model
         return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [ $id ], true);
     }
 
+    public function create(array $data, ?array $relations = null) : bool
+    {
+        $firstParenthesis = "";
+        $secondParenthesis = "";
+        $i = 1;
+
+        foreach($data as $key => $value) {
+            $comma = $i === count($data) ? '' : ', ';
+            $firstParenthesis .= "{$key}{$comma}";
+            $secondParenthesis .= ":{$key}{$comma}";
+            $i++;
+        }
+
+        return $this->query("INSERT INTO {$this->table} ($firstParenthesis) VALUES ($secondParenthesis)", $data);
+    }
+
     // 세번째 파라미터 nullable
     public function update(int $id, array $data, ?array $relations = null) : bool
     {
@@ -30,7 +46,7 @@ abstract class Model
         $i = 1;
 
         foreach($data as $key => $value) {
-            $comma = $i === count($data) ? ' ' : ', ';
+            $comma = $i === count($data) ? '' : ', ';
             $sqlRequest .= "{$key} = :{$key}{$comma}";
             $i++;
         }

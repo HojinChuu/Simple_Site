@@ -31,6 +31,21 @@ class Post extends Model
     }
 
     // @override
+    public function create(array $data, ?array $relations = null) : bool
+    {
+        parent::create($data);
+
+        $id = $this->db->getPDO()->lastInsertId();
+
+        foreach($relations as $tagId) {
+            $stmt = $this->db->getPDO()->prepare("INSERT INTO post_tag (post_id, tag_id) VALUES (?, ?)");
+            $stmt->execute([ $id, $tagId ]);
+        }
+
+        return true;
+    }
+
+    // @override
     public function update(int $id, array $data, ?array $relations = null) : bool 
     {
         parent::update($id, $data);
